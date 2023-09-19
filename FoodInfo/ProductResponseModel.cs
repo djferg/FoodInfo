@@ -8,5 +8,7 @@ namespace FoodInfo
 {
     internal class ProductResponseModel
     {
+        // https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search
+
     }
 }
