@@ -26,7 +26,11 @@ namespace FoodInfo
             if(response.IsSuccessStatusCode)
             {
                 ProductResponseModel model = (ProductResponseModel)await response.Content.ReadFromJsonAsync(typeof(List<string>));
-                products = model.products;
+                /*products = model.products;*/
+            }
+            if (products != null)
+            {
+                return products;
             }
             return products;
         }
