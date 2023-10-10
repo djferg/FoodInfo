@@ -22,62 +22,99 @@
                 Padding="30,0"
                 VerticalOptions="Center">
 
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
+                <!-- Prefences button -->
+                <Button x:Name="ButtonPreferences"
+                        Text="⚙️ Preferences"
+                        HorizontalOptions="End"/>
 
-                <Label
+                <!-- Header and logo -->
+                <VerticalStackLayout>
+                    <Label
                     Text="Food Info"
                     FontFamily="Helvetica"
                     FontAttributes="Bold"
                     SemanticProperties.HeadingLevel="Level1"
                     FontSize="48"
                     HorizontalOptions="Center" />
-
-                <Label
-                    Text="Welcome to .NET Multi-platform App UI"
-                    SemanticProperties.HeadingLevel="Level2"
-                    SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                    <Label
+                    Text="Data sourced from Open Food Facts"
+                    FontFamily="Helvetica"
                     FontSize="12"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="Center"/>
+                </VerticalStackLayout>
 
-                <Button
-                    x:Name="CounterBtn"
-                    Text="Click me"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    Clicked="OnCounterClicked"
-                    HorizontalOptions="Center" />
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
-                <Image
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
+                <!-- Search -->
+                <Border>
+                    <Entry Placeholder="Search products"/>
+                </Border>
+                
+                <!-- Recent products -->
+                <VerticalStackLayout>
+                    <Label Text="Recent Products"
+                           FontFamily="Helvetica"
+                           FontSize="24"/>
+                    <!-- Recent 1 -->
+                    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very long"
+                               VerticalOptions="Center"
+                               MaximumWidthRequest="250"/>
+                        <Image Source="dotnet_bot.png"
+                               HeightRequest="75"
+                               HorizontalOptions="End"/>
+                    </HorizontalStackLayout>
+                    <!-- Recent 2 -->
+                    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very very very very very long"
+                               VerticalOptions="Center"
+                               MaximumWidthRequest="250"/>
+                        <Image Source="dotnet_bot.png"
+                               HeightRequest="75"
+                               HorizontalOptions="End"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- Recent categories -->
+                <VerticalStackLayout>
+                    <Label Text="Recent Categories"
+                           FontFamily="Helvetica"
+                           FontSize="24"/>
+                    <FlexLayout Wrap="Wrap"
+                                AlignItems="Stretch"
+                                HorizontalOptions="CenterAndExpand"
+                                JustifyContent="SpaceEvenly"
+                                Margin="50">
+                        <!-- Category 1 -->
+                        <Button x:Name="ButtonTopCategory1" 
+                                Text="Category 1"
+                                SemanticProperties.Hint="Perform a search for category 1 items"
+                                BackgroundColor="CornflowerBlue"/>
+                        <!-- Category 2 -->
+                        <Button x:Name="ButtonTopCategory2"
+                                Text="Category 2"
+                                SemanticProperties.Hint="Perform a search for category 2 items"
+                                BackgroundColor="OrangeRed"/>
+                        <!-- Category 3 -->
+                        <Button x:Name="ButtonTopCategory3" 
+                                Text="Category 3"
+                                SemanticProperties.Hint="Perform a search for category 3 items"
+                                BackgroundColor="MediumVioletRed"/>
+                        <!-- Category 4 -->
+                        <Button x:Name="ButtonTopCategory4"
+                                Text="Category 4"
+                                SemanticProperties.Hint="Perform a search for category 4 items"
+                                BackgroundColor="ForestGreen"/>
+                    </FlexLayout>
+                </VerticalStackLayout>
 
             </VerticalStackLayout>
         </ScrollView>
+        
+        <!-- Floating action button -->
         <Button                
             x:Name="ButtonScanBarcode"
             Text="Scan Barcode"
             SemanticProperties.Hint="Opens the camera to scan a barcode"
             Grid.Column="1"
-            Grid.Row="1"
-            />
+            Grid.Row="1" />
     </Grid>
 </ContentPage>
