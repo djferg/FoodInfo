@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodInfo.ProductPage"
+             Title="Product Name">
+    <ScrollView>
+        <VerticalStackLayout
+            HorizontalOptions="CenterAndExpand">
+            <Label
+                    Text="Biscuits Milk Arrowroot - Arnott's 250g"
+                    FontFamily="Helvetica"
+                    FontAttributes="Bold"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="36"
+                    HorizontalOptions="Center" 
+                    Margin="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    />
+            <Label
+                    Text="EAN: 90000203099356112"
+                    FontFamily="Helvetica"
+                    FontSize="12"
+                    HorizontalOptions="Center"/>
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="200"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -9,18 +9,18 @@ namespace FoodInfo
 {
     static class OpenFoodFactsAPIService
     {
-        static string baseURL = "https://api.openfoodfacts.org/api/v2/blahblahblah/";
+        static string baseURL = "https://world.openfoodfacts.net/api/v2/";
 
         public static async Task<List<string>> GetProducts()
         {
             List<string> products = new List<string>();
 
-            string endpoint = baseURL + "products";
+            string endpoint = baseURL + "search?brands_tags=arnott%27s" +
+                "&fields=code%2Cproduct_name%2Cimage_url";
 
             HttpClient client = new HttpClient();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, endpoint);
-            request.Headers.Add("apikey", "&hhf6sbd7fnd67s667fff7");
             HttpResponseMessage response = await client.SendAsync(request);
 
             if(response.IsSuccessStatusCode)

@@ -8,7 +8,29 @@ namespace FoodInfo
 {
     internal class ProductResponseModel
     {
-        // https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search
+		private int barcode;
 
-    }
+		public int Barcode
+		{
+			get { return barcode; }
+			set { barcode = value; }
+		}
+
+		private string name;
+
+		public string Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
+
+		private string imageUrl;
+
+		public string ImageUrl
+		{
+			get { return imageUrl; }
+			set { imageUrl = value; }
+		}
+
+	}
 }
