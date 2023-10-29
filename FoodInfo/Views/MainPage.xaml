@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodInfo.MainPage"
+             x:Class="FoodInfo.Views.MainPage"
+             Style="{DynamicResource PageStyle}"
              Shell.NavBarIsVisible="False">
 
     <Grid>
@@ -36,7 +37,8 @@
                     FontAttributes="Bold"
                     SemanticProperties.HeadingLevel="Level1"
                     FontSize="48"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="Center" 
+                    Style="{DynamicResource LabelPrimary}"/>
                     <Label
                     Text="Data sourced from Open Food Facts"
                     FontFamily="Helvetica"
@@ -57,18 +59,25 @@
                     <!-- Recent 1 -->
                     <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very long"
+                               x:Name="RecentProductOne"
                                VerticalOptions="Center"
                                MaximumWidthRequest="250"/>
                         <Image Source="dotnet_bot.png"
+                               x:Name="RecentProductOneImage"
                                HeightRequest="75"
                                HorizontalOptions="End"/>
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Recent_Tapped"/>
+                        </HorizontalStackLayout.GestureRecognizers>
                     </HorizontalStackLayout>
                     <!-- Recent 2 -->
                     <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very very very very very long"
+                               x:Name="RecentProductTwo"
                                VerticalOptions="Center"
                                MaximumWidthRequest="250"/>
                         <Image Source="dotnet_bot.png"
+                               x:Name="RecentProductTwoImage"
                                HeightRequest="75"
                                HorizontalOptions="End"/>
                     </HorizontalStackLayout>

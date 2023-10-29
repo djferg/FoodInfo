@@ -7,5 +7,12 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
+
+        Current.RequestedThemeChanged += Current_RequestedThemeChanged;
 	}
+
+    private void Current_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
