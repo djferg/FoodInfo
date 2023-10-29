@@ -71,7 +71,8 @@
 
 	<ItemGroup>
 	  <Folder Include="Controller\" />
-	  <Folder Include="Models\NewFolder\" />
+	  <Folder Include="Models\Domain\" />
+	  <Folder Include="Models\API\" />
 	</ItemGroup>
 
 	<ItemGroup>
