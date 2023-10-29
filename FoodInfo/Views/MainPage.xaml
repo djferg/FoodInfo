@@ -27,7 +27,8 @@
                 <!-- Prefences button -->
                 <Button x:Name="ButtonPreferences"
                         Text="⚙️ Preferences"
-                        HorizontalOptions="End"/>
+                        HorizontalOptions="End"
+                        Clicked="ButtonPreferences_Clicked"/>
 
                 <!-- Header and logo -->
                 <VerticalStackLayout>

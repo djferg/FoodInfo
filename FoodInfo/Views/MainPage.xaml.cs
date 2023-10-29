@@ -35,5 +35,10 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new ProductView(recentProducts.Products[0]));
     }
+
+    private async void ButtonPreferences_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SettingsPage());
+    }
 }
 

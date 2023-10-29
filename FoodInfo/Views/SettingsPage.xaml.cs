@@ -10,16 +10,16 @@ public partial class SettingsPage : ContentPage
 
     private void LightThemeChecked(object sender, CheckedChangedEventArgs e)
     {
-        SettingsManager.CurrentTheme = AppTheme.Light;
+        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Light);
     }
 
     private void DarkThemeChecked(object sender, CheckedChangedEventArgs e)
     {
-        SettingsManager.CurrentTheme = AppTheme.Dark;
+        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Dark);
     }
 
     private void SystemThemeChecked(object sender, CheckedChangedEventArgs e)
     {
-        SettingsManager.CurrentTheme = AppTheme.System;
+        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
     }
 }
