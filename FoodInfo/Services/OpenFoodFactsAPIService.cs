@@ -34,5 +34,28 @@ namespace FoodInfo.Services
                 return null;
             }
         }
+
+        public static async Task<ProductSearchByCodeResponseModel> GetProductResponse(string code)
+        {
+            string endpoint = baseURL + "product/" + code +
+                "?fields=code," +
+                "product_name," +
+                "image_url," +
+                "ingredients";
+
+            HttpClient client = new();
+            HttpRequestMessage request = new(HttpMethod.Get, endpoint);
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                ProductSearchByCodeResponseModel model = (ProductSearchByCodeResponseModel)await response.Content.ReadFromJsonAsync(typeof(ProductSearchByCodeResponseModel));
+                return model;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

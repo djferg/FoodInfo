@@ -4,15 +4,22 @@
              x:Class="FoodInfo.Views.ProductView"
              Style="{DynamicResource PageStyle}"
              xmlns:vm="clr-namespace:FoodInfo.Models"
-             x:DataType="vm:ProductModel"
              Title="Product Details">
-    <TableView Intent="Data">
-        <TableRoot>
-            <TableSection Title="Key Details">
-                <TextCell Text="Code" Detail="{Binding Barcode}" />
-                <TextCell Text="Name" Detail="{Binding Name}" />
-                <ImageCell Text="Image" ImageSource="{Binding ImageUrl}" />
-            </TableSection>
-        </TableRoot>
-    </TableView>
+    <StackLayout>
+        <Label Text="Code" />
+        <Label Text="{Binding Barcode}" />
+        <Label Text="Name" />
+        <Label Text="{Binding Name}" />
+        <Image Source="{Binding ImageUrl}" WidthRequest="100" />
+
+        <Label Text="Ingredients" FontAttributes="Bold" />
+
+        <ListView ItemsSource="{Binding Ingredients}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Text}" Detail="{Binding Id}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

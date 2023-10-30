@@ -9,22 +9,16 @@ namespace FoodInfo.Models
 {
     public class ProductSearchByCodeResponseModel
     {
-        [JsonPropertyName("count")]
-        public int Count { get; set; }
+        [JsonPropertyName("code")]
+        public string Code;
 
-        [JsonPropertyName("page")]
-        public int Page { get; set; }
+        [JsonPropertyName("product")]
+        public ProductModel Product { get; set; }
 
-        [JsonPropertyName("page_count")]
-        public int PageCount { get; set; }
+        [JsonPropertyName("status")]
+        public int Status { get; set; }
 
-        [JsonPropertyName("page_size")]
-        public int PageSize { get; set; }
-
-        [JsonPropertyName("products")]
-        public List<ProductModel> Products { get; set; }
-
-        [JsonPropertyName("skip")]
-        public int Skip { get; set; }
+        [JsonPropertyName("status_verbose")]
+        public string StatusVerbose { get; set; }
     }
 }

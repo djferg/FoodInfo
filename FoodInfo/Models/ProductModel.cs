@@ -18,5 +18,28 @@ namespace FoodInfo.Models
         [JsonPropertyName("product_name")]
         public string Name { get; set; }
 
+        [JsonPropertyName("ingredients")]
+        public List<Ingredient> Ingredients { get; set; }
+
+    }
+
+    public class Ingredient
+    {
+        [JsonPropertyName("text")]
+        public string Text { get; set; }
+
+        [JsonPropertyName("id")]
+        public string Id { get; set; }
+
+        [JsonPropertyName("vegan")]
+        public string Vegan { get; set; }
+
+        [JsonPropertyName("vegetarian")]
+        public string Vegetarian {  get; set; }
+    }
+
+    public class Nutriments
+    {
+
     }
 }

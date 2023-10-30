@@ -7,6 +7,8 @@ namespace FoodInfo.Views;
 public partial class MainPage : ContentPage
 {
 	public ProductsSearchByNameResponseModel recentProducts;
+    public ProductSearchByCodeResponseModel testProductResponse;
+    public ProductModel testProduct;
 	public MainPage()
 	{
 		InitializeComponent();	
@@ -20,6 +22,9 @@ public partial class MainPage : ContentPage
 		Application.Current.Resources.MergedDictionaries.Add(new LightTheme());
 
         recentProducts = await OpenFoodFactsAPIService.GetProductsResponse("rosella");
+        testProductResponse = await OpenFoodFactsAPIService.GetProductResponse(recentProducts.Products[0].Barcode);
+        testProduct = testProductResponse.Product;
+
 
 		if(recentProducts != null)
 		{
@@ -33,7 +38,7 @@ public partial class MainPage : ContentPage
 
     private async void Recent_Tapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PushAsync(new ProductView(recentProducts.Products[0]));
+        await Navigation.PushAsync(new ProductView(testProduct));
     }
 
     private async void ButtonPreferences_Clicked(object sender, EventArgs e)
