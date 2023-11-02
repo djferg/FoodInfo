@@ -45,5 +45,10 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new SettingsPage());
     }
+
+    private async void Entry_Search_Completed(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Search(Entry_Search.Text));
+    }
 }
 

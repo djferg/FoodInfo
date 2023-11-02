@@ -3,13 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodInfo.Views.Search"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
-             Title="Search">
-    <VerticalStackLayout>
-        <Label 
-            Text="Search Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Search Products">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry x:Name="Entry_Search"
+                   Completed="Entry_Search_Completed"/>
 
-        <cv:CameraView x:Name="CameraView" WidthRequest="400" HeightRequest="200"/>
-    </VerticalStackLayout>
+            
+
+            <ListView x:Name="ListView_Products" ItemsSource="{Binding Products}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" 
+                                   Detail="{Binding Barcode}"
+                                   ImageSource="{Binding ImageUrl}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

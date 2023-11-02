@@ -16,8 +16,8 @@ namespace FoodInfo.Services
         {
             string endpoint = baseURL + "search?brands_tags=" + brand_tags +
                 "&fields=" +
-                "code%2C" +
-                "product_name%2C" +
+                "code," +
+                "product_name," +
                 "image_url";
 
             HttpClient client = new();
