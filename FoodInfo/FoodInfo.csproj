@@ -65,10 +65,10 @@
 	  <MauiXaml Update="Views\ProductView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Search.xaml">
+	  <MauiXaml Update="Views\SearchView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsPage.xaml">
+	  <MauiXaml Update="Views\SettingsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -80,8 +80,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MainView.xaml.cs">
+	    <DependentUpon>MainView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ProductView.xaml.cs">
 	    <DependentUpon>ProductView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SearchView.xaml.cs">
+	    <DependentUpon>SearchView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SettingsView.xaml.cs">
+	    <DependentUpon>SettingsView.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 

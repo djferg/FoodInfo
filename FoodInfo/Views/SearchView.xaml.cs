@@ -1,14 +1,13 @@
-using Android.Speech.Tts;
 using FoodInfo.Models;
 using FoodInfo.Services;
 
 namespace FoodInfo.Views;
 
-public partial class Search : ContentPage
+public partial class SearchView : ContentPage
 {
-	public Search(string searchText="")
+	public SearchView(string searchText="")
 	{
-		InitializeComponent();
+        InitializeComponent();
 
 		Entry_Search.Text = searchText;
 

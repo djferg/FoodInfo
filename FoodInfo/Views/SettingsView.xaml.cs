@@ -1,9 +1,9 @@
 namespace FoodInfo.Views;
 using FoodInfo.Services;
 
-public partial class SettingsPage : ContentPage
+public partial class SettingsView : ContentPage
 {
-	public SettingsPage()
+	public SettingsView()
 	{
 		InitializeComponent();
 	}

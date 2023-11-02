@@ -4,12 +4,12 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace FoodInfo.Views;
 
-public partial class MainPage : ContentPage
+public partial class MainView : ContentPage
 {
 	public ProductsSearchByNameResponseModel recentProducts;
     public ProductSearchByCodeResponseModel testProductResponse;
     public ProductModel testProduct;
-	public MainPage()
+	public MainView()
 	{
 		InitializeComponent();	
 	}
@@ -48,7 +48,7 @@ public partial class MainPage : ContentPage
 
     private async void Entry_Search_Completed(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Search(Entry_Search.Text));
+        await Navigation.PushAsync(new SearchView(Entry_Search.Text));
     }
 }
 
