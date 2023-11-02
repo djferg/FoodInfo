@@ -43,7 +43,7 @@ public partial class MainView : ContentPage
 
     private async void ButtonPreferences_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new SettingsPage());
+        await Navigation.PushAsync(new SettingsView());
     }
 
     private async void Entry_Search_Completed(object sender, EventArgs e)

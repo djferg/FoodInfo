@@ -6,12 +6,15 @@
              Title="Search Products">
     <ScrollView>
         <VerticalStackLayout>
-            <Entry x:Name="Entry_Search"
-                   Completed="Entry_Search_Completed"/>
+            <SearchBar x:Name="Entry_Search"
+                   SearchButtonPressed="Entry_Search_Completed"/>
 
-            
 
-            <ListView x:Name="ListView_Products" ItemsSource="{Binding Products}" HasUnevenRows="True">
+
+            <ListView x:Name="ListView_Products" 
+                      ItemsSource="{Binding Products}" 
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell Text="{Binding Name}" 

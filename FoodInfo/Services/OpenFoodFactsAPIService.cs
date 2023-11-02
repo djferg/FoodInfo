@@ -1,61 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http.Json;
 using FoodInfo.Models;
 
 namespace FoodInfo.Services
 {
     public class OpenFoodFactsAPIService
     {
-        readonly static string baseURL = "https://world.openfoodfacts.net/api/v2/";
+        private static readonly string baseURL = "https://world.openfoodfacts.net/api/v2/";
+        private static readonly HttpClient client = new();
 
         public static async Task<ProductsSearchByNameResponseModel> GetProductsResponse(string brand_tags)
         {
-            string endpoint = baseURL + "search?brands_tags=" + brand_tags +
-                "&fields=" +
-                "code," +
-                "product_name," +
-                "image_url";
+            string endpoint = $"{baseURL}search?brands_tags={brand_tags}&fields=code,product_name,image_url";
 
-            HttpClient client = new();
-            HttpRequestMessage request = new(HttpMethod.Get, endpoint);
-            HttpResponseMessage response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage response;
+            try
             {
-                ProductsSearchByNameResponseModel model = (ProductsSearchByNameResponseModel)await response.Content.ReadFromJsonAsync(typeof(ProductsSearchByNameResponseModel));
-                return model;
+                response = await client.GetAsync(endpoint);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<ProductsSearchByNameResponseModel>();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error fetching product list {ex.Message}");
                 return null;
             }
         }
 
         public static async Task<ProductSearchByCodeResponseModel> GetProductResponse(string code)
         {
-            string endpoint = baseURL + "product/" + code +
-                "?fields=code," +
-                "product_name," +
-                "image_url," +
-                "ingredients";
+            string endpoint = $"{baseURL}product/{code}?fields=code,product_name,image_url,ingredients";
 
-            HttpClient client = new();
-            HttpRequestMessage request = new(HttpMethod.Get, endpoint);
-            HttpResponseMessage response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage response;
+            try
             {
-                ProductSearchByCodeResponseModel model = (ProductSearchByCodeResponseModel)await response.Content.ReadFromJsonAsync(typeof(ProductSearchByCodeResponseModel));
-                return model;
+                response = await client.GetAsync(endpoint);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<ProductSearchByCodeResponseModel>();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
+                Console.WriteLine($"Error fetching product {ex.Message}");
                 return null;
             }
         }
     }
 }
+

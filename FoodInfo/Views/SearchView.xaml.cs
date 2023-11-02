@@ -11,21 +11,37 @@ public partial class SearchView : ContentPage
 
 		Entry_Search.Text = searchText;
 
-		if (searchText != null )
-		{
-			PerformSearch(searchText);
-		}
+        if (searchText != null )
+        {
+            PerformSearch();
+        }
 	}
 
-	async private void PerformSearch(string searchText)
-	{
-		ProductsSearchByNameResponseModel response = await OpenFoodFactsAPIService.GetProductsResponse(searchText);
+    async private void PerformSearch()
+    {
+        try
+        {
+            ListView_Products.ItemsSource = null;
+            ListView_Products.BindingContext = null;
 
-		ListView_Products.BindingContext = response;
-	}
+            ProductsSearchByNameResponseModel response = await OpenFoodFactsAPIService.GetProductsResponse(Entry_Search.Text.ToString());
+
+            if (response != null && response.Products != null)
+            {
+                ListView_Products.BindingContext = response;
+                ListView_Products.ItemsSource = response.Products;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log or display the error message
+            Console.WriteLine(ex.Message);
+        }
+    }
+
 
     private void Entry_Search_Completed(object sender, EventArgs e)
     {
-        PerformSearch(Entry_Search.Text);
+        PerformSearch();
     }
 }

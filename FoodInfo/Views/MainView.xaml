@@ -49,10 +49,10 @@
 
                 <!-- Search -->
                 <Border>
-                    <Entry x:Name="Entry_Search"
+                    <SearchBar x:Name="Entry_Search"
                            Placeholder="Search products"
                            MaxLength="20"
-                           Completed="Entry_Search_Completed"/>
+                           SearchButtonPressed="Entry_Search_Completed"/>
                 </Border>
                 
                 <!-- Recent products -->
