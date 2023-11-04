@@ -14,7 +14,8 @@
             <ListView x:Name="ListView_Products" 
                       ItemsSource="{Binding Products}" 
                       HasUnevenRows="True"
-                      CachingStrategy="RecycleElement">
+                      CachingStrategy="RecycleElement"
+                      ItemTapped="ListView_Products_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ImageCell Text="{Binding Name}" 

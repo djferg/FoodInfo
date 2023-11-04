@@ -14,7 +14,9 @@
 
         <Label Text="Ingredients" FontAttributes="Bold" />
 
-        <ListView ItemsSource="{Binding Ingredients}" HasUnevenRows="True">
+        <ListView ItemsSource="{Binding Ingredients}" 
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElement">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Text}" Detail="{Binding Id}" />

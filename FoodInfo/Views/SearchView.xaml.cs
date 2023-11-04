@@ -34,7 +34,6 @@ public partial class SearchView : ContentPage
         }
         catch (Exception ex)
         {
-            // Log or display the error message
             Console.WriteLine(ex.Message);
         }
     }
@@ -43,5 +42,11 @@ public partial class SearchView : ContentPage
     private void Entry_Search_Completed(object sender, EventArgs e)
     {
         PerformSearch();
+    }
+
+    private void ListView_Products_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        ProductModel product = e.Item as ProductModel;
+        Navigation.PushAsync(new ProductView(product));
     }
 }
