@@ -19,8 +19,7 @@ public partial class ProductView : ContentPage
 
 	public async void UpdateProduct(ProductModel product)
 	{
-        ProductSearchByCodeResponseModel productReponse = new();
-        productReponse = await OpenFoodFactsAPIService.GetProductResponse(product.Barcode);
+        ProductSearchByCodeResponseModel productReponse = await OpenFoodFactsAPIService.GetProductResponse(product.Barcode);
         product = productReponse.Product;
 		product.RequiresUpdate = false;
 
