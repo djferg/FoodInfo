@@ -5,24 +5,23 @@ namespace FoodInfo.Views;
 
 public partial class ProductView : ContentPage
 {
+	ProductViewModel viewModel = new();
 	public ProductView(ProductModel product)
 	{
 		InitializeComponent();
-		
-		BindingContext = product;
 
-		if (product.RequiresUpdate)
-		{
-			UpdateProduct(product);
-		}
+		viewModel.Product = product;
+
+		UpdateView();
+
+        BindingContext = viewModel.Product;
+		
 	}
 
-	public async void UpdateProduct(ProductModel product)
+	public async void UpdateView()
 	{
-        ProductSearchByCodeResponseModel productReponse = await OpenFoodFactsAPIService.GetProductResponse(product.Barcode);
-        product = productReponse.Product;
-		product.RequiresUpdate = false;
-
-		BindingContext = product;
+		await viewModel.UpdateProduct();
+		BindingContext = null;
+        BindingContext = viewModel.Product;
     }
 }

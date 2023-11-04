@@ -21,12 +21,6 @@ namespace FoodInfo.Models
         [JsonPropertyName("ingredients")]
         public List<Ingredient> Ingredients { get; set; }
 
-        /// <summary>
-        /// This product has been created from a list search
-        /// and requires an update for more details.
-        /// </summary>
-        public bool RequiresUpdate { get; set; } = true;
-
     }
 
     public class Ingredient
