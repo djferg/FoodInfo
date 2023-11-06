@@ -4,17 +4,64 @@
              x:Class="FoodInfo.Views.SettingsView"
              Style="{DynamicResource PageStyle}"
              Title="Preferences">
-    <VerticalStackLayout>
-        <Label 
-            Text="App theme"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <RadioButton Content="Light"
-                     CheckedChanged="LightThemeChecked"/>
-        <RadioButton Content="Dark"
-                     CheckedChanged="DarkThemeChecked"/>
-        <RadioButton Content="System"
-                     CheckedChanged="SystemThemeChecked"
-                     IsChecked="true"/>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="30"
+            Padding="10">
+            <!-- Theme -->
+            <Label 
+                Text="App theme"
+                Style="{DynamicResource LabelPrimary}"/>
+            <HorizontalStackLayout>
+                <RadioButton 
+                    Content="Light"                         
+                    CheckedChanged="LightThemeChecked"
+                    Style="{DynamicResource RadioPrimary}"/>
+                <RadioButton 
+                    Content="Dark"
+                    CheckedChanged="DarkThemeChecked"
+                    Style="{DynamicResource RadioPrimary}"/>
+                <RadioButton 
+                    Content="System"                         
+                    CheckedChanged="SystemThemeChecked"
+                    IsChecked="true"
+                    Style="{DynamicResource RadioPrimary}"/>
+            </HorizontalStackLayout>            
+            <!-- Energy units -->
+            <Label
+                Text="Energy unit"
+                Style="{DynamicResource LabelPrimary}"/>
+            <HorizontalStackLayout>
+                <RadioButton 
+                    Content="Kilojoules"
+                    IsChecked="True"
+                    Style="{DynamicResource RadioPrimary}"/>
+                <RadioButton 
+                    Content="Calories"                             
+                    Style="{DynamicResource RadioPrimary}"/>
+            </HorizontalStackLayout>            
+            <!-- History -->
+            <Label
+                Text="Product history"
+                Style="{DynamicResource LabelPrimary}"/>
+            <Border
+                WidthRequest="50"
+                HorizontalOptions="Start">
+                <Entry 
+                    Keyboard="Numeric"                   
+                    Text="12"
+                    Style="{DynamicResource EntryPrimary}"/>
+            </Border>            
+            <Button 
+                Text="Clear history"
+                MaximumWidthRequest="200"/>
+            <!-- Reset -->
+            <Label 
+                Text="Defaults"
+                Style="{DynamicResource LabelPrimary}"/>
+            <Button 
+                Text="Reset app defaults"
+                MaximumWidthRequest="200"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

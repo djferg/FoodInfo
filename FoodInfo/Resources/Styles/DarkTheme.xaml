@@ -2,12 +2,28 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodInfo.DarkTheme">
+    
+    <!-- Colours -->
+    <Color x:Key="PrimaryColor">Black</Color>
+    <Color x:Key="SecondaryColor">White</Color>
+    
+    <!-- Styles -->
     <Style x:Key="PageStyle" TargetType="Page">
-        <Setter x:Name="PageBackground" Property="Background" Value="Darkblue"/>
+        <Setter x:Name="PageBackground" Property="Background" Value="{DynamicResource PrimaryColor}"/>
     </Style>
     <Style x:Key="LabelPrimary" TargetType="Label" >
-        <Setter x:Name="TextColorPrimary" Property="TextColor" Value="Lightblue"/>
+        <Setter x:Name="LabelTextColor" Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+        <Setter x:Name="LabelBackgroundColor" Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+        <Setter x:Name="LabelFontSize" Property="FontSize" Value="16"/>
     </Style>
-    <Color x:Key="PrimaryColor">Darkblue</Color>
-    <Color x:Key="SecondaryColor">Lightblue</Color>
+    <Style x:Key="EntryPrimary" TargetType="Entry" >
+        <Setter x:Name="EntryTextColor" Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+        <Setter x:Name="EntryBackgroundColor" Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+        <Setter x:Name="EntryFontSize" Property="FontSize" Value="12"/>
+    </Style>
+    <Style x:Key="RadioPrimary" TargetType="RadioButton" >
+        <Setter x:Name="RadioTextColor" Property="TextColor" Value="{DynamicResource SecondaryColor}"/>
+        <Setter x:Name="RadioBackgroundColor" Property="BackgroundColor" Value="{DynamicResource PrimaryColor}"/>
+    </Style>
+    
 </ResourceDictionary>
