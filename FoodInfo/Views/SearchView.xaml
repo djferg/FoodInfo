@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodInfo.Views.SearchView"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
-             Title="Search Products">
+             Title="Search Products"
+             Style="{DynamicResource PageStyle}">
     <ScrollView>
         <VerticalStackLayout>
             <SearchBar x:Name="Entry_Search"
-                   SearchButtonPressed="Entry_Search_Completed"/>
+                   SearchButtonPressed="Entry_Search_Completed"
+                       TextColor="{DynamicResource SecondaryColor}"
+                       CancelButtonColor="{DynamicResource SecondaryColor}"/>
 
 
 
@@ -20,7 +23,9 @@
                     <DataTemplate>
                         <ImageCell Text="{Binding Name}" 
                                    Detail="{Binding Barcode}"
-                                   ImageSource="{Binding ImageUrl}"/>
+                                   ImageSource="{Binding ImageUrl}"
+                                   TextColor="{DynamicResource SecondaryColor}"
+                                   DetailColor="{DynamicResource SecondaryColor}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

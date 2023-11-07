@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodInfo.Models
 {
-    internal class ProductSearchModel
+    internal class ProductsSearchViewModel
     {
     }
 }
