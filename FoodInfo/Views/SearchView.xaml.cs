@@ -19,11 +19,11 @@ public partial class SearchView : ContentPage
 
     async private void PerformSearch()
     {
+        ListView_Products.ItemsSource = null;
+        ListView_Products.BindingContext = null;
+
         try
         {
-            ListView_Products.ItemsSource = null;
-            ListView_Products.BindingContext = null;
-
             ProductsSearchByNameResponseModel response = await OpenFoodFactsAPIService.GetProductsResponse(Entry_Search.Text.ToString());
 
             if (response != null && response.Products != null)

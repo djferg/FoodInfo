@@ -6,20 +6,29 @@
              xmlns:vm="clr-namespace:FoodInfo.Models"
              Title="Product Details">
     <StackLayout>
-        <Label Text="Code" />
-        <Label Text="{Binding Barcode}" />
-        <Label Text="Name" />
-        <Label Text="{Binding Name}" />
+        <Label Text="Code" 
+               Style="{DynamicResource LabelPrimary}"/>
+        <Label Text="{Binding Barcode}"
+               Style="{DynamicResource LabelPrimary}"/>
+        <Label Text="Name"
+               Style="{DynamicResource LabelPrimary}"/>
+        <Label Text="{Binding Name}" 
+               Style="{DynamicResource LabelPrimary}"/>
         <Image Source="{Binding ImageUrl}" WidthRequest="100" />
 
-        <Label Text="Ingredients" FontAttributes="Bold" />
+        <Label Text="Ingredients" 
+               FontAttributes="Bold"
+               Style="{DynamicResource LabelPrimary}"/>
 
         <ListView ItemsSource="{Binding Ingredients}" 
                   HasUnevenRows="True"
-                  CachingStrategy="RecycleElement">
+                  CachingStrategy="RecycleElement"
+                  Style="{DynamicResource LabelPrimary}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}" Detail="{Binding Id}"/>
+                    <TextCell Text="{Binding Text}" 
+                              Detail="{Binding Id}"
+                              TextColor="{DynamicResource SecondaryColor}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

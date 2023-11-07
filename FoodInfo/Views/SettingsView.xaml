@@ -46,7 +46,10 @@
                 Style="{DynamicResource LabelPrimary}"/>
             <Border
                 WidthRequest="50"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start"
+                BackgroundColor="HotPink"
+                StrokeThickness="10">
+                
                 <Entry 
                     Keyboard="Numeric"                   
                     Text="12"
