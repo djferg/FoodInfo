@@ -19,7 +19,7 @@
                   CachingStrategy="RecycleElement">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}" Detail="{Binding Id}" />
+                    <TextCell Text="{Binding Text}" Detail="{Binding Id}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
