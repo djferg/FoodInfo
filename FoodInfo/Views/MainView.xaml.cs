@@ -1,6 +1,5 @@
 ﻿using FoodInfo.Models;
 using FoodInfo.Services;
-using System.Security.Cryptography.X509Certificates;
 
 namespace FoodInfo.Views;
 

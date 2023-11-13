@@ -5,21 +5,47 @@
              Style="{DynamicResource PageStyle}"
              xmlns:vm="clr-namespace:FoodInfo.Models"
              Title="Product Details">
-    <StackLayout>
-        <Label Text="Code" />
-        <Label Text="{Binding Barcode}" />
-        <Label Text="Name" />
-        <Label Text="{Binding Name}" />
-        <Image Source="{Binding ImageUrl}" WidthRequest="100" />
+    <StackLayout Margin="30">
+        
+        <Label Text="{Binding Name}"
+               FontSize="36"
+               FontFamily="Helvetica"
+               FontAttributes="Bold"
+               SemanticProperties.HeadingLevel="Level1"
+               Style="{DynamicResource LabelPrimary}"
+               HorizontalOptions="CenterAndExpand"
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               Padding="30"/>
 
-        <Label Text="Ingredients" FontAttributes="Bold" />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="EAN: " 
+               Style="{DynamicResource LabelPrimary}"/>
+            <Label Text="{Binding Barcode}"
+               Style="{DynamicResource LabelPrimary}"/>
+        </HorizontalStackLayout>
+
+        <Border 
+            WidthRequest="200"
+            HeightRequest="200"
+            StrokeShape="Ellipse">
+            <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+        </Border>
+
+        <Label Text="Ingredients" 
+               FontAttributes="Bold"
+               Style="{DynamicResource LabelPrimary}"/>
 
         <ListView ItemsSource="{Binding Ingredients}" 
                   HasUnevenRows="True"
-                  CachingStrategy="RecycleElement">
+                  CachingStrategy="RecycleElement"
+                  Margin="30">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}" Detail="{Binding Id}" />
+                    <TextCell Text="{Binding Text}" 
+                              Detail="{Binding Id}"
+                              TextColor="{DynamicResource SecondaryColor}"
+                              DetailColor="{DynamicResource SecondaryColor}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

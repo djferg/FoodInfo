@@ -44,7 +44,8 @@
                     Text="Data sourced from Open Food Facts"
                     FontFamily="Helvetica"
                     FontSize="12"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Style="{DynamicResource LabelPrimary}"/>
                 </VerticalStackLayout>
 
                 <!-- Search -->
@@ -59,13 +60,15 @@
                 <VerticalStackLayout>
                     <Label Text="Recent Products"
                            FontFamily="Helvetica"
-                           FontSize="24"/>
+                           FontSize="24"
+                           Style="{DynamicResource LabelPrimary}"/>
                     <!-- Recent 1 -->
                     <HorizontalStackLayout HorizontalOptions="FillAndExpand">
                         <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very long"
                                x:Name="RecentProductOne"
                                VerticalOptions="Center"
-                               MaximumWidthRequest="250"/>
+                               MaximumWidthRequest="250"
+                               Style="{DynamicResource LabelPrimary}"/>
                         <Image Source="dotnet_bot.png"
                                x:Name="RecentProductOneImage"
                                HeightRequest="75"
@@ -79,7 +82,8 @@
                         <Label Text="Biscuits Milk Arrowroot - Arnott's 250g what if the name is very very very very very very long"
                                x:Name="RecentProductTwo"
                                VerticalOptions="Center"
-                               MaximumWidthRequest="250"/>
+                               MaximumWidthRequest="250"
+                               Style="{DynamicResource LabelPrimary}"/>
                         <Image Source="dotnet_bot.png"
                                x:Name="RecentProductTwoImage"
                                HeightRequest="75"
@@ -91,7 +95,8 @@
                 <VerticalStackLayout>
                     <Label Text="Recent Categories"
                            FontFamily="Helvetica"
-                           FontSize="24"/>
+                           FontSize="24"
+                           Style="{DynamicResource LabelPrimary}"/>
                     <FlexLayout Wrap="Wrap"
                                 AlignItems="Stretch"
                                 HorizontalOptions="CenterAndExpand"

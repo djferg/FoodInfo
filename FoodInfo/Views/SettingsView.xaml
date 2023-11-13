@@ -47,6 +47,7 @@
             <Border
                 WidthRequest="50"
                 HorizontalOptions="Start">
+                
                 <Entry 
                     Keyboard="Numeric"                   
                     Text="12"
