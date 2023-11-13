@@ -49,6 +49,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Controller\**" />
+	  <AndroidResource Remove="Models\API\**" />
+	  <AndroidResource Remove="Models\Domain\**" />
+	  <Compile Remove="Controller\**" />
+	  <Compile Remove="Models\API\**" />
+	  <Compile Remove="Models\Domain\**" />
+	  <EmbeddedResource Remove="Controller\**" />
+	  <EmbeddedResource Remove="Models\API\**" />
+	  <EmbeddedResource Remove="Models\Domain\**" />
+	  <MauiCss Remove="Controller\**" />
+	  <MauiCss Remove="Models\API\**" />
+	  <MauiCss Remove="Models\Domain\**" />
+	  <MauiXaml Remove="Controller\**" />
+	  <MauiXaml Remove="Models\API\**" />
+	  <MauiXaml Remove="Models\Domain\**" />
+	  <None Remove="Controller\**" />
+	  <None Remove="Models\API\**" />
+	  <None Remove="Models\Domain\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Camera.MAUI" Version="1.4.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -71,12 +92,6 @@
 	  <MauiXaml Update="Views\SettingsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Controller\" />
-	  <Folder Include="Models\Domain\" />
-	  <Folder Include="Models\API\" />
 	</ItemGroup>
 
 	<ItemGroup>
