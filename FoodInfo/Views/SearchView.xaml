@@ -4,27 +4,21 @@
              x:Class="FoodInfo.Views.SearchView"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
              Title="Search Products">
-    <ScrollView>
-        <VerticalStackLayout>
-            <SearchBar x:Name="Entry_Search"
-                   SearchButtonPressed="Entry_Search_Completed"/>
-
-
-
-            <ListView x:Name="ListView_Products" 
-                      ItemsSource="{Binding Products}" 
-                      HasUnevenRows="True"
-                      CachingStrategy="RecycleElement"
-                      ItemTapped="ListView_Products_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ImageCell Text="{Binding Name}" 
-                                   Detail="{Binding Barcode}"
-                                   ImageSource="{Binding ImageUrl}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
-        </VerticalStackLayout>
-    </ScrollView>
+    <VerticalStackLayout>
+        <SearchBar x:Name="Entry_Search"
+                SearchButtonPressed="Entry_Search_Completed"/>
+        <ListView x:Name="ListView_Products" 
+                    ItemsSource="{Binding Products}" 
+                    HasUnevenRows="True"
+                    CachingStrategy="RecycleElement"
+                    ItemTapped="ListView_Products_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Name}" 
+                                Detail="{Binding Barcode}"
+                                ImageSource="{Binding ImageUrl}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
 </ContentPage>
