@@ -3,23 +3,50 @@ using FoodInfo.Services;
 
 public partial class SettingsView : ContentPage
 {
-	public SettingsView()
-	{
-		InitializeComponent();
-	}
-
-    private void LightThemeChecked(object sender, CheckedChangedEventArgs e)
+    bool isInitializing = true;
+    public SettingsView()
     {
-        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Light);
+        isInitializing = true;
+
+        InitializeComponent();
+
+        InitializePreferences();
+
+        isInitializing = false;
     }
 
-    private void DarkThemeChecked(object sender, CheckedChangedEventArgs e)
+    private void InitializePreferences()
     {
-        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Dark);
+        if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.Light)
+        {
+            ThemeLight.IsChecked = true;
+        }
+        else if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.Dark)
+        {
+            ThemeDark.IsChecked = true;
+        }
+        else
+        {
+            ThemeSystem.IsChecked = true;
+        }
     }
-
-    private void SystemThemeChecked(object sender, CheckedChangedEventArgs e)
+    private void ThemeChanged(object sender, CheckedChangedEventArgs e)
     {
-        SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
+        if (isInitializing) return;
+
+        RadioButton radioButton = (RadioButton)sender;
+
+        if (radioButton.Content.ToString() == "Light")
+        {
+            SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Light);
+        }
+        else if (radioButton.Content.ToString() == "Dark")
+        {
+            SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Dark);
+        }
+        else
+        {
+            SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
+        }
     }
 }

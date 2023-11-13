@@ -12,19 +12,22 @@
             <Label 
                 Text="App theme"
                 Style="{DynamicResource LabelPrimary}"/>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout
+                RadioButtonGroup.GroupName="Theme">
                 <RadioButton 
+                    x:Name="ThemeLight"
                     Content="Light"                         
-                    CheckedChanged="LightThemeChecked"
+                    CheckedChanged="ThemeChanged"
                     Style="{DynamicResource RadioPrimary}"/>
                 <RadioButton 
+                    x:Name="ThemeDark"
                     Content="Dark"
-                    CheckedChanged="DarkThemeChecked"
+                    CheckedChanged="ThemeChanged"
                     Style="{DynamicResource RadioPrimary}"/>
                 <RadioButton 
+                    x:Name="ThemeSystem"
                     Content="System"                         
-                    CheckedChanged="SystemThemeChecked"
-                    IsChecked="true"
+                    CheckedChanged="ThemeChanged"
                     Style="{DynamicResource RadioPrimary}"/>
             </HorizontalStackLayout>            
             <!-- Energy units -->

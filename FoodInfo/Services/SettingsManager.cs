@@ -12,7 +12,7 @@ namespace FoodInfo.Services
         {
             get
             {
-                string themeString = Preferences.Get("SettingTheme", SettingTheme.System.ToString());
+                string themeString = Preferences.Get("AppTheme", SettingTheme.System.ToString());
                 if (Enum.TryParse(themeString, out SettingTheme theme))
                 {
                     return theme;

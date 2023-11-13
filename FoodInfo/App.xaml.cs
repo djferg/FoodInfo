@@ -1,4 +1,6 @@
-﻿namespace FoodInfo;
+﻿using FoodInfo.Services;
+
+namespace FoodInfo;
 
 public partial class App : Application
 {
@@ -8,11 +10,21 @@ public partial class App : Application
 
 		MainPage = new AppShell();
 
-        Current.RequestedThemeChanged += Current_RequestedThemeChanged;
-	}
-
-    private void Current_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
-    {
-        throw new NotImplementedException();
+		if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.System)
+		{
+            AppTheme systemTheme = Application.Current.RequestedTheme;
+            if (systemTheme == AppTheme.Light)
+            {
+                SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Light);
+            }
+            else if (systemTheme == AppTheme.Dark)
+            {
+                SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Dark);
+            }
+            else
+            {
+                SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
+            }
+        }
     }
 }
