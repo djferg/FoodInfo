@@ -6,12 +6,27 @@
              Title="Search Products"
              Style="{DynamicResource PageStyle}">
     <ScrollView>
-        <VerticalStackLayout>
-            <SearchBar x:Name="Entry_Search"
-                   SearchButtonPressed="Entry_Search_Completed"
-                       TextColor="{DynamicResource SecondaryColor}"
-                       CancelButtonColor="{DynamicResource SecondaryColor}"/>
-
+        <VerticalStackLayout 
+            VerticalOptions="StartAndExpand">
+            <SearchBar 
+                x:Name="Entry_Search"
+                SearchButtonPressed="Entry_Search_Completed"
+                VerticalOptions="Start"
+                HorizontalOptions="StartAndExpand"
+                TextColor="{DynamicResource SecondaryColor}"
+                Background="{DynamicResource PrimaryColor}"
+                CancelButtonColor="{DynamicResource SecondaryColor}"/>
+            
+            <ActivityIndicator IsRunning="true" 
+                               x:Name="Loading"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"/>
+            
+            <Label x:Name="NoResults"
+                   Text="No results"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Style="{DynamicResource LabelPrimary}"/>
 
 
             <ListView x:Name="ListView_Products" 

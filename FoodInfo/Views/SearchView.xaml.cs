@@ -19,6 +19,8 @@ public partial class SearchView : ContentPage
 
     async private void PerformSearch()
     {
+        Loading.IsVisible = true;
+        NoResults.IsVisible = false;
         try
         {
             ListView_Products.ItemsSource = null;
@@ -30,7 +32,9 @@ public partial class SearchView : ContentPage
             {
                 ListView_Products.BindingContext = response;
                 ListView_Products.ItemsSource = response.Products;
+                Loading.IsVisible = false;
             }
+            if (response.Count == 0) NoResults.IsVisible = true;
         }
         catch (Exception ex)
         {
