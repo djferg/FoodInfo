@@ -7,7 +7,7 @@ using FoodInfo.Services;
 
 namespace FoodInfo.Models
 {
-    public  class ProductViewModel
+    public class ProductViewModel
     {
         public ProductModel Product { get; set; }
         public bool RequiresUpdate { get; set; }

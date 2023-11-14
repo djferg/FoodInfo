@@ -5,6 +5,7 @@ namespace FoodInfo.Views;
 
 public partial class SearchView : ContentPage
 {
+    ProductsSearchViewModel viewModel = new();
 	public SearchView(string searchText="")
 	{
         InitializeComponent();
@@ -13,6 +14,7 @@ public partial class SearchView : ContentPage
 
         if (searchText != null )
         {
+            viewModel.SearchTerm = searchText;
             PerformSearch();
         }
 	}
