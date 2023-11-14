@@ -4,14 +4,14 @@ namespace FoodInfo;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
-		MainPage = new AppShell();
+        MainPage = new AppShell();
 
-		if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.System)
-		{
+        if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.System)
+        {
             AppTheme systemTheme = Application.Current.RequestedTheme;
             if (systemTheme == AppTheme.Light)
             {
@@ -25,6 +25,14 @@ public partial class App : Application
             {
                 SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
             }
+        }
+        else if (SettingsManager.CurrentTheme == SettingsManager.SettingTheme.Light)
+        {
+            SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Light);
+        }
+        else
+        {
+            SettingsManager.ApplyTheme(SettingsManager.SettingTheme.Dark);
         }
     }
 }

@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodInfo.Views.SearchView"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             Shell.BackgroundColor="{DynamicResource PrimaryColor}"
+             Shell.TitleColor="{DynamicResource SecondaryColor}"
+             Shell.ForegroundColor="{DynamicResource SecondaryColor}"
              Title="Search Products"
              Style="{DynamicResource PageStyle}">
     <ScrollView>

@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodInfo.Views.ProductView"
              Style="{DynamicResource PageStyle}"
+             Shell.BackgroundColor="{DynamicResource PrimaryColor}"
+             Shell.TitleColor="{DynamicResource SecondaryColor}"
+             Shell.ForegroundColor="{DynamicResource SecondaryColor}"
              xmlns:vm="clr-namespace:FoodInfo.Models"
              Title="Product Details">
     <StackLayout Margin="30">
