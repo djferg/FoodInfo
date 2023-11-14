@@ -7,6 +7,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="10" />
@@ -16,6 +18,14 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
+        <!-- Prefences button -->
+        <Button 
+            x:Name="ButtonPreferences"
+            Text="⚙️ Preferences"
+            HorizontalOptions="End"
+            Clicked="ButtonPreferences_Clicked"
+            Grid.Column="1"
+            Grid.Row="1" />
         <ScrollView
             Grid.RowSpan="3"
             Grid.ColumnSpan="3">
@@ -23,12 +33,6 @@
                 Spacing="25"
                 Padding="30,0"
                 VerticalOptions="Center">
-
-                <!-- Prefences button -->
-                <Button x:Name="ButtonPreferences"
-                        Text="⚙️ Preferences"
-                        HorizontalOptions="End"
-                        Clicked="ButtonPreferences_Clicked"/>
 
                 <!-- Header and logo -->
                 <VerticalStackLayout>
@@ -57,7 +61,8 @@
                 </Border>
                 
                 <!-- Recent products -->
-                <VerticalStackLayout>
+                <VerticalStackLayout
+                    IsVisible="False">
                     <Label Text="Recent Products"
                            FontFamily="Helvetica"
                            FontSize="24"
@@ -68,7 +73,8 @@
                                x:Name="RecentProductOne"
                                VerticalOptions="Center"
                                MaximumWidthRequest="250"
-                               Style="{DynamicResource LabelPrimary}"/>
+                               Style="{DynamicResource LabelPrimary}"
+                               IsVisible="False"/>
                         <Image Source="dotnet_bot.png"
                                x:Name="RecentProductOneImage"
                                HeightRequest="75"
@@ -91,40 +97,6 @@
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
 
-                <!-- Recent categories -->
-                <VerticalStackLayout>
-                    <Label Text="Recent Categories"
-                           FontFamily="Helvetica"
-                           FontSize="24"
-                           Style="{DynamicResource LabelPrimary}"/>
-                    <FlexLayout Wrap="Wrap"
-                                AlignItems="Stretch"
-                                HorizontalOptions="CenterAndExpand"
-                                JustifyContent="SpaceEvenly"
-                                Margin="50">
-                        <!-- Category 1 -->
-                        <Button x:Name="ButtonTopCategory1" 
-                                Text="Category 1"
-                                SemanticProperties.Hint="Perform a search for category 1 items"
-                                BackgroundColor="CornflowerBlue"/>
-                        <!-- Category 2 -->
-                        <Button x:Name="ButtonTopCategory2"
-                                Text="Category 2"
-                                SemanticProperties.Hint="Perform a search for category 2 items"
-                                BackgroundColor="OrangeRed"/>
-                        <!-- Category 3 -->
-                        <Button x:Name="ButtonTopCategory3" 
-                                Text="Category 3"
-                                SemanticProperties.Hint="Perform a search for category 3 items"
-                                BackgroundColor="MediumVioletRed"/>
-                        <!-- Category 4 -->
-                        <Button x:Name="ButtonTopCategory4"
-                                Text="Category 4"
-                                SemanticProperties.Hint="Perform a search for category 4 items"
-                                BackgroundColor="ForestGreen"/>
-                    </FlexLayout>
-                </VerticalStackLayout>
-
             </VerticalStackLayout>
         </ScrollView>
         
@@ -135,6 +107,6 @@
             Text="Scan Barcode"
             SemanticProperties.Hint="Opens the camera to scan a barcode"
             Grid.Column="1"
-            Grid.Row="1" />
+            Grid.Row="3" />
     </Grid>
 </ContentPage>
