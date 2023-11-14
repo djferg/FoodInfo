@@ -19,13 +19,6 @@
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
         <!-- Prefences button -->
-        <Button 
-            x:Name="ButtonPreferences"
-            Text="⚙️ Preferences"
-            HorizontalOptions="End"
-            Clicked="ButtonPreferences_Clicked"
-            Grid.Column="1"
-            Grid.Row="1" />
         <ScrollView
             Grid.RowSpan="3"
             Grid.ColumnSpan="3">
@@ -54,10 +47,13 @@
 
                 <!-- Search -->
                 <Border>
-                    <SearchBar x:Name="Entry_Search"
-                           Placeholder="Search products"
-                           MaxLength="20"
-                           SearchButtonPressed="Entry_Search_Completed"/>
+                    <SearchBar 
+                        x:Name="Entry_Search"
+                        Placeholder="Search brand name or barcode"
+                        MaxLength="20"
+                        SearchButtonPressed="Entry_Search_Completed"
+                        TextColor="{DynamicResource SecondaryColor}"
+                        Background="{DynamicResource PrimaryColor}"/>
                 </Border>
                 
                 <!-- Recent products -->
@@ -100,7 +96,14 @@
             </VerticalStackLayout>
         </ScrollView>
         
-        <!-- Floating action button -->
+        <!-- Floating action/prefs button -->
+        <Button 
+            x:Name="ButtonPreferences"
+            Text="⚙️ Preferences"
+            HorizontalOptions="End"
+            Clicked="ButtonPreferences_Clicked"
+            Grid.Column="1"
+            Grid.Row="1" />
         <Button                
             x:Name="ButtonScanBarcode"
             Clicked="ButtonScanBarcode_Clicked"
