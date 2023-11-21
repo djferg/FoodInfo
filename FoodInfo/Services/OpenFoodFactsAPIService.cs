@@ -5,8 +5,20 @@ namespace FoodInfo.Services
 {
     public class OpenFoodFactsAPIService
     {
-        private static readonly string baseURL = "https://world.openfoodfacts.net/api/v2/";
+        private static readonly string prodURL = "https://world.openfoodfacts.org/api/v2/";
+        private static readonly string devURL = "https://world.openfoodfacts.net/api/v2/";
+        private static string baseURL = devURL;
         private static readonly HttpClient client = new();
+
+        public static void EnableProductionMode()
+        {
+            baseURL = prodURL;
+        }
+
+        public static void EnableDeveloperMode()
+        {
+            baseURL = devURL;
+        }
 
         public static async Task<ProductsSearchByNameResponseModel> GetProductsResponse(string brand_tags)
         {

@@ -58,5 +58,41 @@ namespace FoodInfo.Services
             Dark,
             System
         }
+
+        public enum AppMode
+        {
+            Production,
+            Developer
+        }
+
+        static public AppMode CurrentMode
+        {
+            get
+            {
+                string appMode = Preferences.Get("AppMode", AppMode.Developer.ToString());
+                if (Enum.TryParse(appMode, out AppMode mode))
+                {
+                    return mode;
+                }
+                return AppMode.Developer;
+            }
+            set { Preferences.Set("AppMode", value.ToString()); }
+        }
+
+        public static void ApplyMode(AppMode mode)
+        {
+            CurrentMode = mode;
+
+            switch (mode)
+            {
+                case AppMode.Production:
+                    OpenFoodFactsAPIService.EnableProductionMode();
+                    break;
+                case AppMode.Developer:
+                    OpenFoodFactsAPIService.EnableDeveloperMode();
+                    break;
+            }
+
+        }
     }
 }

@@ -49,4 +49,20 @@ public partial class SettingsView : ContentPage
             SettingsManager.ApplyTheme(SettingsManager.SettingTheme.System);
         }
     }
+
+    private void ModeChanged(object sender, CheckedChangedEventArgs e)
+    {
+        if (isInitializing) return;
+
+        RadioButton radioButton = (RadioButton)sender;
+
+        if (radioButton.Content.ToString() == "Production")
+        {
+            SettingsManager.ApplyMode(SettingsManager.AppMode.Production);
+        }
+        else if (radioButton.Content.ToString() == "Developer")
+        {
+            SettingsManager.ApplyMode(SettingsManager.AppMode.Developer);
+        }
+    }
 }

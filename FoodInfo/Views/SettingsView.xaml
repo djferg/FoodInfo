@@ -69,6 +69,23 @@
             <Button 
                 Text="Reset app defaults"
                 MaximumWidthRequest="200"/>
+            <!-- App Mode -->
+            <Label 
+                Text="App Mode"
+                Style="{DynamicResource LabelPrimary}"/>
+            <HorizontalStackLayout
+                RadioButtonGroup.GroupName="AppMode">
+                <RadioButton 
+                    x:Name="ModeProd"
+                    Content="Production"                         
+                    CheckedChanged="ModeChanged"
+                    Style="{DynamicResource RadioPrimary}"/>
+                <RadioButton 
+                    x:Name="ModeDev"
+                    Content="Developer"
+                    CheckedChanged="ModeChanged"
+                    Style="{DynamicResource RadioPrimary}"/>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
